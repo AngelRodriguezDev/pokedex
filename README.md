@@ -1,2 +1,0 @@
-# pokedex
-test flutter pokedex
