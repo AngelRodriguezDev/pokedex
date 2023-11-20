@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/controller/pokedex_controller.dart';
+import 'package:provider/provider.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({super.key});
@@ -10,6 +12,7 @@ class PokedexPage extends StatefulWidget {
 class _PokedexPageState extends State<PokedexPage> {
   @override
   Widget build(BuildContext context) {
+    int countPokedex = context.watch<PokedexController>().pokeTeamCount;
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -22,7 +25,7 @@ class _PokedexPageState extends State<PokedexPage> {
                   "assets/pokeball.png",
                 ),
               ),
-              Text("2",
+              Text(countPokedex.toString(),
                   style: TextStyle(
                       fontSize: 28,
                       shadows: [
