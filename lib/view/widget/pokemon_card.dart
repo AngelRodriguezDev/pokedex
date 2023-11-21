@@ -63,27 +63,36 @@ class _PokeCardState extends State<PokeCard> {
               ),
             ],
           ),
-          pokeTeam.contains(pokemon) || pokeTeam.length >= 5
+          pokeTeam.length >= 5
               ? Text(
-                  "Ya es parte de tu equipo",
+                  "Tu equipo esta completo",
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: Colors.green[800], fontWeight: FontWeight.bold),
+                      color: Colors.blue[800], fontWeight: FontWeight.bold),
                 )
-              : TextButton(
-                  onPressed: () =>
-                      context.read<PokedexController>().updatePokeTeam(pokemon),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Agregar a mi equipo",
+              : pokeTeam.contains(pokemon)
+                  ? Text(
+                      "Ya es parte de tu equipo",
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.green[800],
+                          fontWeight: FontWeight.bold),
+                    )
+                  : TextButton(
+                      onPressed: () => context
+                          .read<PokedexController>()
+                          .updatePokeTeam(pokemon),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Agregar a mi equipo",
+                          ),
+                          Icon(
+                            Icons.add,
+                          ),
+                        ],
                       ),
-                      Icon(
-                        Icons.add,
-                      ),
-                    ],
-                  ),
-                ),
+                    ),
         ],
       ),
     );
