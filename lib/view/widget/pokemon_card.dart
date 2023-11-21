@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class PokeCard extends StatefulWidget {
-  final pokemon;
+  final Pokemon pokemon;
   const PokeCard({required this.pokemon, super.key});
 
   @override
@@ -19,8 +19,8 @@ class _PokeCardState extends State<PokeCard> {
     Pokemon pokemon = widget.pokemon;
     List<Pokemon> pokeTeam = context.watch<PokedexController>().pokeTeam;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.symmetric(horizontal: 2),
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         color: Colors.grey[400],
         borderRadius: BorderRadius.circular(15),
@@ -33,7 +33,7 @@ class _PokeCardState extends State<PokeCard> {
             children: [
               Text(
                 pokemon.name.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
@@ -42,7 +42,7 @@ class _PokeCardState extends State<PokeCard> {
                 children: [
                   for (var type in pokemon.types)
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 1),
+                      margin: const EdgeInsets.symmetric(horizontal: 1),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.black,
@@ -51,7 +51,8 @@ class _PokeCardState extends State<PokeCard> {
                         borderRadius: BorderRadius.circular(8),
                         color: typeColors[type],
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 5),
                       child: StrokeText(
                         text: type,
                         textColor: Colors.white,
@@ -82,7 +83,7 @@ class _PokeCardState extends State<PokeCard> {
                       onPressed: () => context
                           .read<PokedexController>()
                           .updatePokeTeam(pokemon),
-                      child: Column(
+                      child: const Column(
                         children: [
                           Text(
                             "Agregar a mi equipo",

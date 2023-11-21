@@ -4,7 +4,7 @@ import 'package:pokedex/model/pokemon_model.dart';
 import 'package:provider/provider.dart';
 
 class PokeSmallCard extends StatefulWidget {
-  final pokemon;
+  final Pokemon pokemon;
   const PokeSmallCard({required this.pokemon, super.key});
 
   @override
@@ -16,8 +16,8 @@ class _PokeSmallCardState extends State<PokeSmallCard> {
   Widget build(BuildContext context) {
     Pokemon pokemon = widget.pokemon;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         color: Colors.grey[400],
         borderRadius: BorderRadius.circular(25),
@@ -30,7 +30,7 @@ class _PokeSmallCardState extends State<PokeSmallCard> {
             children: [
               Text(
                 pokemon.name.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
@@ -38,7 +38,7 @@ class _PokeSmallCardState extends State<PokeSmallCard> {
               TextButton(
                 onPressed: () =>
                     context.read<PokedexController>().updatePokeTeam(pokemon),
-                child: Text("Quitar de mi equipo"),
+                child: const Text("Quitar de mi equipo"),
               )
             ],
           ),

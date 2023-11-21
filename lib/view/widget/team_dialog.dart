@@ -16,17 +16,16 @@ class _TeamDialogState extends State<TeamDialog> {
   Widget build(BuildContext context) {
     List<Pokemon> pokeTeam = context.watch<PokedexController>().pokeTeam;
     return Center(
-      child: Container(
-        child: AlertDialog(
-          title: Text("Mi equipo Pokemon"),
-          content: Column(mainAxisSize: MainAxisSize.min, children: [
-            for (Pokemon pokemon in pokeTeam) PokeSmallCard(pokemon: pokemon)
-          ]),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.pop(context), child: Text("Cerrar"))
-          ],
-        ),
+      child: AlertDialog(
+        title: const Text("Mi equipo Pokemon"),
+        content: Column(mainAxisSize: MainAxisSize.min, children: [
+          for (Pokemon pokemon in pokeTeam) PokeSmallCard(pokemon: pokemon)
+        ]),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cerrar"))
+        ],
       ),
     );
   }

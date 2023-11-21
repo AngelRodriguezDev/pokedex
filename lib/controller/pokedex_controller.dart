@@ -3,8 +3,8 @@ import 'package:pokedex/api/pokedex_service.dart';
 import 'package:pokedex/model/pokemon_model.dart';
 
 class PokedexController with ChangeNotifier {
-  List<Pokemon> _pokedex = [];
-  List<Pokemon> _pokeTeam = [];
+  final List<Pokemon> _pokedex = [];
+  final List<Pokemon> _pokeTeam = [];
 
   get pokedex => _pokedex;
   get pokedexCount => _pokedex.length;
@@ -22,7 +22,8 @@ class PokedexController with ChangeNotifier {
 
   loadPokemonInfo(String url) async {
     var auxInfo = await PokedexAPI().getPokemonInfo(url: url);
-    if (!_pokedex.contains(auxInfo)) _pokedex.add(Pokemon.fromJason(auxInfo));
+    Pokemon auxPokemon = Pokemon.fromJason(auxInfo);
+    if (!_pokedex.contains(auxPokemon)) _pokedex.add(auxPokemon);
     _pokedex.sort((a, b) => a.id.compareTo(b.id));
     notifyListeners();
   }

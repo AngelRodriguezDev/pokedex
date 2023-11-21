@@ -60,7 +60,7 @@ class _PokedexPageState extends State<PokedexPage> {
           ? Center(
               child: JumpingText(
                 "...Cargando Pokedex...",
-                style: TextStyle(color: Colors.red, fontSize: 24),
+                style: const TextStyle(color: Colors.red, fontSize: 24),
               ),
             )
           : Padding(
