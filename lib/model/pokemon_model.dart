@@ -12,11 +12,15 @@ class Pokemon {
   });
 
   factory Pokemon.fromJason(Map<String, dynamic> json) {
+    List<String> auxList = [];
+    for (var element in json["types"]) {
+      auxList.add(element["type"]["name"]);
+    }
     return Pokemon(
       id: json["id"],
       name: json["name"],
-      image: json["image"],
-      types: json["types"],
+      image: json["sprites"]["front_default"],
+      types: auxList,
     );
   }
 }
